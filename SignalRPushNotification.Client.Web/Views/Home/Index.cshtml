@@ -1,0 +1,56 @@
+﻿@model SignalRPushNotification.Server.PushNotificationModel
+
+
+<form method="post"
+      asp-action="SendNotification"
+      asp-controller="Home"
+      data-ajax="true"
+      role="form">
+    <fieldset class="scheduler-border">
+        <legend class="scheduler-border">Send Notification Form</legend>
+        <div class="control-group">
+            <div class="form-group">
+
+                <label label-for="CallerConnectionId">My Connection Id: </label>
+                <input id="CallerConnectionId" name="CallerConnectionId" value="" class="form-control" readonly />
+                <hr />
+
+                <label label-for="ReciversConnectionIds">Recivers ConnectionId: </label>
+                <input id="ReciversConnectionIds" name="ReciversConnectionIds" class="form-control" placeholder="CONNECTION_ID_1,CONNECTION_ID_2,..." />
+
+
+
+                <label label-for="title">Title: </label>
+                <input id="title" name="Title" class="form-control" />
+
+                <label label-for="Content">Content: </label>
+                <input id="Content" name="Content" class="form-control" />
+            </div>
+            <button class="btn btn-primary" type="submit">Send Notification</button>
+
+        </div>
+    </fieldset>
+
+</form>
+
+    <!--modal-->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">push notification</h4>
+                </div>
+                <div class="modal-body">
+                    <img height="100" src="https://secure.gravatar.com/avatar/d873e1aef8503441519c51ed429d837d?s=512&r=g&d=retro" />
+                    <h3 id="modal-title"></h3>
+                    <p id="modal-content"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Accept</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
